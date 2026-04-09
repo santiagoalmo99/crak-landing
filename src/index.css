@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+
+  --color-harvest: #D7AA2D;
+  --color-forest: #1A2E1A;
+  --color-charcoal: #0D0D0D;
+  --color-offwhite: #F5F5F7;
+  --color-mist: rgba(255, 255, 255, 0.06);
+  --color-scan: #22FF88;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-scan: scan 2s ease-in-out infinite;
+  --animate-first: moveVertical 30s ease infinite;
+  --animate-second: moveInCircle 20s reverse infinite;
+  --animate-third: moveInCircle 40s linear infinite;
+  --animate-fourth: moveHorizontal 40s ease infinite;
+  --animate-fifth: moveInCircle 20s ease infinite;
+
+  @keyframes moveHorizontal {
+    0% { transform: translateX(-50%) translateY(-10%); }
+    50% { transform: translateX(50%) translateY(10%); }
+    100% { transform: translateX(-50%) translateY(-10%); }
+  }
+  @keyframes moveVertical {
+    0% { transform: translateY(-50%); }
+    50% { transform: translateY(50%); }
+    100% { transform: translateY(-50%); }
+  }
+  @keyframes moveInCircle {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes scan {
+    0%, 100% { transform: translateY(0); opacity: 0.2; }
+    50% { transform: translateY(100%); opacity: 1; }
+  }
+}
+
+@layer base {
+  :root {
+    --background: var(--color-charcoal);
+    --foreground: var(--color-offwhite);
+  }
+
+  * {
+    @apply border-white/10;
+  }
+
+  body {
+    @apply bg-charcoal text-offwhite font-jakarta antialiased selection:bg-harvest selection:text-charcoal;
+    font-feature-settings: "tnum" 1, "kern" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-inter font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-mist backdrop-blur-md border border-white/10;
+  }
+  
+  .glass-dark {
+    @apply bg-charcoal/80 backdrop-blur-xl border border-white/5;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-white/40;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-harvest via-harvest/80 to-harvest/40;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-charcoal;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
