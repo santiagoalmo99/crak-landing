@@ -38,18 +38,18 @@ export const HeroSection = () => {
           
           <motion.h1 
             variants={fadeUp}
-            className="text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[0.9] mb-8 text-white"
+            className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[1.1] mb-8 text-white font-sans"
           >
-            Digital <span className="font-serif italic font-light text-white/90">Sovereignty</span> <br/>
-            Protocol.
+            <span className="shimmer-premium inline-block pb-1">Neural intelligence</span> <br/>
+            in the hands of the producer.
           </motion.h1>
 
           <motion.p 
             variants={fadeUp}
-            className="text-lg md:text-xl text-offwhite/60 font-light max-w-xl leading-relaxed mb-10"
+            className="text-base md:text-lg text-offwhite/70 font-light max-w-xl leading-relaxed mb-10 font-sans"
           >
-            A Global Standard for Origin. <br/>
-            <span className="font-bold text-harvest bg-gradient-to-r from-harvest via-white to-harvest bg-[length:200%_auto] animate-shimmer bg-clip-text text-transparent uppercase tracking-widest text-sm">Intelligence</span> verified at the source.
+            Precision shouldn't be a privilege. CRAK delivers <span className="text-white font-medium">industrial-grade neural sensory certification</span> directly to the farm — offline, incorruptible, and instant. <br/>
+            <span className="italic text-harvest/80 block mt-2">Stop negotiating with words. Start trading with data.</span>
           </motion.p>
 
           <motion.div 

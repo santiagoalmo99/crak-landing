@@ -1,6 +1,7 @@
 import React from 'react';
 import { HeroSection } from './components/Hero/HeroSection';
 import { ProblemSection } from './components/Problem/ProblemSection';
+import { SovereigntySection } from './components/Sovereignty/SovereigntySection';
 import { HowItWorksSection } from './components/HowItWorks/HowItWorksSection';
 import { FeaturesBento } from './components/Features/FeaturesBento';
 import { ArchitectureSection } from './components/Architecture/ArchitectureSection';
@@ -14,6 +15,7 @@ function App() {
     <main className="relative min-h-screen bg-charcoal overflow-x-hidden">
       <HeroSection />
       <ProblemSection />
+      <SovereigntySection />
       <HowItWorksSection />
       <FeaturesBento />
       <ArchitectureSection />
