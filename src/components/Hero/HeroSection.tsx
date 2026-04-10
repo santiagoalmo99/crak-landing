@@ -40,7 +40,7 @@ export const HeroSection = () => {
             variants={fadeUp}
             className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-[1.1] mb-8 text-white font-sans"
           >
-            <span className="shimmer-premium inline-block pb-1">Neural intelligence</span> <br/>
+            <span className="neural-pulse-scan pb-1">Neural intelligence</span> <br/>
             in the hands of the producer.
           </motion.h1>
 

@@ -1,14 +1,14 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 @theme {
   --font-sans: var(--font-sans);
-  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
   --color-charcoal: #0A0A0B;
   --color-harvest: #D7AA2D;
   --color-offwhite: #F5F5F7;
@@ -17,28 +17,15 @@
   --color-mist: rgba(255, 255, 255, 0.06);
 
   --animate-scan: scan 2s ease-in-out infinite;
-  --animate-first: moveVertical 30s ease infinite;
-  --animate-second: moveInCircle 20s reverse infinite;
-  --animate-third: moveInCircle 40s linear infinite;
-  --animate-fourth: moveHorizontal 40s ease infinite;
-  --animate-fifth: moveInCircle 20s ease infinite;
 
-  @keyframes moveHorizontal {
-    0% { transform: translateX(-50%) translateY(-10%); }
-    50% { transform: translateX(50%) translateY(10%); }
-    100% { transform: translateX(-50%) translateY(-10%); }
+  @keyframes neural-pulse {
+    0%, 100% { opacity: 0.9; filter: brightness(1) drop-shadow(0 0 0px rgba(215, 170, 45, 0)); }
+    50% { opacity: 1; filter: brightness(1.3) drop-shadow(0 0 8px rgba(215, 170, 45, 0.4)); }
   }
 
-  @keyframes moveVertical {
-    0% { transform: translateY(-50%); }
-    50% { transform: translateY(50%); }
-    100% { transform: translateY(-50%); }
-  }
-
-  @keyframes moveInCircle {
-    0% { transform: rotate(0deg); }
-    50% { transform: rotate(180deg); }
-    100% { transform: rotate(360deg); }
+  @keyframes neural-scan {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
   }
 
   @keyframes scan {
@@ -47,26 +34,27 @@
   }
 }
 
-@keyframes shimmer-premium {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.shimmer-premium {
+.neural-pulse-scan {
+  font-family: var(--font-mono);
+  font-weight: 500;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(215, 170, 45, 0.15) 25%,
-    rgba(255, 245, 214, 0.6) 50%,
-    rgba(215, 170, 45, 0.15) 75%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(215, 170, 45, 0) 0%,
+    rgba(215, 170, 45, 0.2) 20%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(215, 170, 45, 0.2) 80%,
+    rgba(215, 170, 45, 0) 100%
   );
   background-size: 200% auto;
-  animation: shimmer-premium 6s linear infinite;
+  animation: 
+    neural-scan 5s cubic-bezier(0.4, 0, 0.2, 1) infinite,
+    neural-pulse 3s ease-in-out infinite;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  will-change: background-position;
+  display: inline-block;
+  letter-spacing: -0.01em;
+  will-change: background-position, filter;
 }
 
 @layer base {
@@ -100,10 +88,6 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-white/40;
-  }
-
-  .text-gradient-gold {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-harvest via-harvest/80 to-harvest/40;
   }
 }
 
