@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 import { SpotlightCard } from '../ui/SpotlightCard';
 
 const defects = [
-  { name: "SANO", severity: "NONE", accuracy: "99.1%", color: "bg-scan", glow: "rgba(34,255,136,0.15)", img: "/assets/grains/healthy.png", desc: "Premium grade bean. Potential for specialty scores." },
-  { name: "BROCA", severity: "HIGH", accuracy: "98.2%", color: "bg-red-500", glow: "rgba(239,68,68,0.15)", img: "/assets/grains/broca.png", desc: "Insect damage affecting bean integrity and price." },
-  { name: "NEGRO", severity: "HIGH", accuracy: "97.5%", color: "bg-red-500", glow: "rgba(239,68,68,0.15)", img: "/assets/grains/black.png", desc: "Full black defect usually caused by fungal rot." },
-  { name: "VINAGRE", severity: "MEDIUM", accuracy: "94.8%", color: "bg-orange-500", glow: "rgba(249,115,22,0.15)", img: "/assets/grains/vinegar.png", desc: "Sour beans from over-fermentation." },
-  { name: "INMADURO", severity: "MEDIUM", accuracy: "95.2%", color: "bg-orange-500", glow: "rgba(249,115,22,0.15)", img: "/assets/grains/immature.png", desc: "Immature pickings that add astringency." },
-  { name: "PARTIDO", severity: "LOW", accuracy: "96.4%", color: "bg-yellow-500", glow: "rgba(234,179,8,0.15)", img: "/assets/grains/broken.png", desc: "Broken beans affecting roasting consistency." },
-  { name: "CARDENILLO", severity: "HIGH", accuracy: "93.9%", color: "bg-red-500", glow: "rgba(239,68,68,0.15)", img: "/assets/grains/cardenillo.png", desc: "Fungal growth that ruins entire batches." }
+  { name: "HEALTHY", severity: "NONE", accuracy: "99.1%", color: "bg-scan", glow: "rgba(34,255,136,0.15)", img: "/assets/grains/healthy.png", desc: "Premium grade bean. Potential for specialty scores." },
+  { name: "BORER", severity: "HIGH", accuracy: "98.2%", color: "bg-red-500", glow: "rgba(239,68,68,0.15)", img: "/assets/grains/broca.png", desc: "Insect damage affecting bean integrity and price." },
+  { name: "BLACK", severity: "HIGH", accuracy: "97.5%", color: "bg-red-500", glow: "rgba(239,68,68,0.15)", img: "/assets/grains/black.png", desc: "Full black defect usually caused by fungal rot." },
+  { name: "VINEGAR", severity: "MEDIUM", accuracy: "94.8%", color: "bg-orange-500", glow: "rgba(249,115,22,0.15)", img: "/assets/grains/vinegar.png", desc: "Sour beans from over-fermentation." },
+  { name: "IMMATURE", severity: "MEDIUM", accuracy: "95.2%", color: "bg-orange-500", glow: "rgba(249,115,22,0.15)", img: "/assets/grains/immature.png", desc: "Immature pickings that add astringency." },
+  { name: "BROKEN", severity: "LOW", accuracy: "96.4%", color: "bg-yellow-500", glow: "rgba(234,179,8,0.15)", img: "/assets/grains/broken.png", desc: "Broken beans affecting roasting consistency." },
+  { name: "MOLDY", severity: "HIGH", accuracy: "93.9%", color: "bg-red-500", glow: "rgba(239,68,68,0.15)", img: "/assets/grains/cardenillo.png", desc: "Fungal growth that ruins entire batches." }
 ];
 
 export const DefectProofGrid = () => {
@@ -47,28 +47,28 @@ export const DefectProofGrid = () => {
                   style={{ background: `radial-gradient(circle at center, ${defect.glow}, transparent 70%)` }}
                 />
 
-                <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
+                <div className="relative w-32 h-32 mb-8 flex items-center justify-center bg-black/20 rounded-full">
                   {/* Status Indicator */}
-                  <div className={`absolute -top-2 -right-2 w-2 h-2 rounded-full ${defect.color} z-20 shadow-[0_0_10px_currentColor]`} />
+                  <div className={`absolute -top-1 -right-1 w-3 h-3 rounded-full ${defect.color} z-30 shadow-[0_0_15px_currentColor]`} />
                   
-                  {/* Floating Grain Image */}
+                  {/* Floating Grain Image - NORMALIZED SCALE */}
                   <motion.div
                     animate={{ 
-                      y: [0, -8, 0],
-                      rotate: [-2, 2, -2]
+                      y: [0, -10, 0],
+                      rotate: [-3, 3, -3]
                     }}
                     transition={{ 
-                      duration: 4, 
+                      duration: 5, 
                       repeat: Infinity, 
                       ease: "easeInOut",
                       delay: idx * 0.2
                     }}
-                    className="relative w-full h-full flex items-center justify-center z-10"
+                    className="relative w-24 h-24 flex items-center justify-center z-10 scale-[1.1]"
                   >
                     <img 
                       src={defect.img} 
                       alt={defect.name}
-                      className="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] mix-blend-screen"
+                      className="w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)] transition-all duration-700"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = 'https://www.transparentpng.com/download/coffee-bean/K8YI1N-coffee-bean-png.png';
                       }}

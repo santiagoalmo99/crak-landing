@@ -14,71 +14,74 @@ export const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src="/assets/hero-bg.png" 
-          alt="Colombian coffee mountains at dusk" 
-          className="w-full h-full object-cover opacity-40 grayscale-[0.2]"
+          alt="Colombian coffee mountains at midnight" 
+          className="w-full h-full object-cover opacity-60 grayscale-[0.1]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/80 to-charcoal" />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/20 via-charcoal/60 to-charcoal" />
         <BackgroundBeams />
       </div>
 
-      <div className="relative z-10 container mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 pt-20 lg:pt-0">
+      <div className="relative z-10 container mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 pt-24 lg:pt-0">
         
-        {/* Left Content */}
+        {/* Left Content - Strategic Text */}
         <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
           variants={staggerChildren}
-          className="flex flex-col items-start max-w-3xl"
+          initial="initial"
+          animate="animate"
+          className="relative z-20 flex flex-col items-start text-left max-w-2xl lg:max-w-3xl"
         >
-          <motion.div 
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8"
-          >
-            <div className="w-2 h-2 rounded-full bg-harvest animate-pulse" />
-            <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-offwhite/80">
-              The Digital Sovereignty Protocol for Coffee Origin
+          <motion.div variants={fadeUp} className="mb-6 flex items-center gap-3">
+            <span className="px-3 py-1 rounded-full bg-harvest/10 border border-harvest/20 text-harvest font-bold text-[10px] uppercase tracking-[0.2em] animate-pulse-slow">
+              v1.0 Protocol
             </span>
           </motion.div>
-
-          <TextGenerateEffect 
-            words="The Global Standard for Origin. Intelligence at the table."
-            className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8"
-          />
+          
+          <motion.h1 
+            variants={fadeUp}
+            className="text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[0.9] mb-8 text-white"
+          >
+            Digital <span className="font-serif italic font-light text-white/90">Sovereignty</span> <br/>
+            Protocol.
+          </motion.h1>
 
           <motion.p 
             variants={fadeUp}
-            className="text-lg md:text-xl text-offwhite/50 max-w-xl mb-12 font-jakarta font-light leading-relaxed"
+            className="text-lg md:text-xl text-offwhite/60 font-light max-w-xl leading-relaxed mb-10"
           >
-            CRAK transforms specialty coffee certification into a digital sovereign right. Verifying quality, traceability, and market value directly at the source—offline and in real-time.
+            A Global Standard for Origin. <br/>
+            <span className="font-bold text-harvest bg-gradient-to-r from-harvest via-white to-harvest bg-[length:200%_auto] animate-shimmer bg-clip-text text-transparent uppercase tracking-widest text-sm">Intelligence</span> verified at the source.
           </motion.p>
 
           <motion.div 
             variants={fadeUp}
             className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
           >
-            <button className="px-6 py-4 bg-harvest hover:bg-harvest/90 text-charcoal rounded-xl font-black text-base transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(215,170,45,0.2)] border border-harvest/50 flex items-center justify-center gap-3 group relative overflow-hidden">
+            <button className="px-8 py-4 bg-harvest hover:bg-harvest/90 text-charcoal rounded-xl font-black text-base transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(215,170,45,0.2)] border border-harvest/50 flex items-center justify-center gap-3 group relative overflow-hidden">
                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]" />
-               Scan Your First Lot — Free
+               Scan Your Lot
                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-6 py-4 bg-white/5 border border-white/10 hover:bg-white/20 hover:border-white/20 text-offwhite rounded-xl font-bold text-base transition-all flex items-center justify-center gap-3 group">
+            <button className="px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/20 hover:border-white/20 text-offwhite rounded-xl font-bold text-base transition-all flex items-center justify-center gap-3 group">
               <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
                 <Play className="w-3 h-3 fill-white" />
               </div>
-              Watch How It Works
+              Watch Protocol
             </button>
           </motion.div>
         </motion.div>
 
-        {/* Right Content - Visual Widget */}
+        {/* Right Content - Tactical Widget */}
         <motion.div 
-          initial={{ opacity: 0, x: 50, scale: 0.95 }}
-          whileInView={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full lg:w-auto flex justify-center lg:justify-end pr-0 lg:pr-12"
+          initial={{ opacity: 0, x: 40, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          className="relative w-full lg:w-auto flex justify-center lg:justify-end"
         >
-          <ScannerHUD />
+          <div className="relative transform scale-90 md:scale-100 lg:scale-110 xl:scale-125">
+            <ScannerHUD />
+            {/* Ambient Shadow for depth */}
+            <div className="absolute -bottom-10 inset-x-0 h-10 bg-black/40 blur-3xl rounded-full" />
+          </div>
         </motion.div>
 
       </div>

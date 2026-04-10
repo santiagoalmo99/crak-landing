@@ -1,8 +1,10 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400..800&display=swap');
 
 @theme {
   --font-inter: "Inter", sans-serif;
   --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "EB Garamond", serif;
 
   --color-harvest: #D7AA2D;
   --color-forest: #1A2E1A;
@@ -13,12 +15,17 @@
 
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-scan: scan 2s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
   --animate-first: moveVertical 30s ease infinite;
   --animate-second: moveInCircle 20s reverse infinite;
   --animate-third: moveInCircle 40s linear infinite;
   --animate-fourth: moveHorizontal 40s ease infinite;
   --animate-fifth: moveInCircle 20s ease infinite;
 
+  @keyframes shimmer {
+    from { background-position: 0% 0%; }
+    to { background-position: 200% 0%; }
+  }
   @keyframes moveHorizontal {
     0% { transform: translateX(-50%) translateY(-10%); }
     50% { transform: translateX(50%) translateY(10%); }
