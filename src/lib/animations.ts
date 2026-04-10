@@ -41,6 +41,6 @@ export const pulseGold: Variants = {
 };
 
 export const viewportConfig = {
-  once: true,
-  margin: "0px"
+  triggerOnce: true,
+  rootMargin: "0px"
 };
